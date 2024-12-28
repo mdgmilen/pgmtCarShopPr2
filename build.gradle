@@ -1,0 +1,44 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.4'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.improve1'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	//implementation 'org.thymeleaf.thymeleaf'
+	// https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf
+//	implementation 'org.thymeleaf:thymeleaf:3.1.2.RELEASE'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	// https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
+	implementation 'org.springframework.data:spring-data-jpa:3.3.5'
+//	implementation 'org.springframework.data:spring-boot-starter-data-jpa:3.3.5'
+
+	// https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api
+	implementation 'jakarta.persistence:jakarta.persistence-api:3.2.0'
+	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
+	implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.5'
+//	implementation 'mysql:mysql-connector-java:8.0.33'
+	// jakarta.persistence.Entity
+	implementation 'org.hibernate:hibernate-core:6.2.7.Final'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
